@@ -1,12 +1,27 @@
-const FormComponent = () => {
+import React, { useState } from 'react';
+
+function Form(props) {
+  const [text, setText] = useState('');
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (text.length === 0) {
+      return;
+    }
+    props.handleAdd(text);
+    setText('');
+  };
+
+  const handleChange = (event) => {
+    setText(event.target.value);
+  };
+
   return (
-    <form>
-      <input type="text" placeholder="New Task" id="new-task"  />
-      <button id="addBtn" type="add-task"> 
-            Add
-      </button>
+    <form onSubmit={handleSubmit}>
+      <input type="text" placeholder="Add a new task" value={text} onChange={handleChange} />
+      <button type="submit">Add</button>
     </form>
   );
-};
+}
 
-export default FormComponent;
+export default Form;
