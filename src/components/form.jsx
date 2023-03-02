@@ -19,7 +19,7 @@ function Form(props) {
   return (
     <form onSubmit={handleSubmit}>
       <input type="text" placeholder="Add a new task" value={text} onChange={handleChange} />
-      <button type="submit">Add</button>
+      <button type="submit" class='Btn'>Adicionar</button>
     </form>
   );
 }

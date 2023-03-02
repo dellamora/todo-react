@@ -5,9 +5,11 @@ function TodoList(props) {
     <div>
       {props.items.map((item) => (
         <div key={item.id}>
+          <div class="TaskBox">
           <input type="checkbox" checked={item.completed} onChange={() => props.handleCheck(item.id)} />
           <span style={{ textDecoration: item.completed ? 'line-through' : 'none' }}>{item.text}</span>
-          <button onClick={() => props.handleDelete(item.id)}>x</button>
+          <button class="Btn" onClick={() => props.handleDelete(item.id)}>Delete</button>
+          </div>
         </div>
       ))}
     </div>
